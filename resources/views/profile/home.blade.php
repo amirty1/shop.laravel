@@ -13,38 +13,34 @@
                             <div class="content-section default">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
-                                        @role('writer')
-                                        I am a writer!
-                                        @else
-                                            I am not a writer...
-                                            @endrole
-                                 <p>
-                                            <span class="title">نام و نام خانوادگی :</span>
-                                            <span>جلال بهرامی راد</span>
-                                        </p>
+                                            <p>
+                                                <span class="title">نام و نام خانوادگی :</span>
+                                                <span>{{$user_this->name}}</span>
+                                            </p>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <p>
                                             <span class="title">پست الکترونیک :</span>
-                                            <span>info@gmail.com</span>
+                                            <span>{{$user_this->email}}</span>
                                         </p>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <p>
                                             <span class="title">شماره تلفن همراه:</span>
-                                            <span>-</span>
+                                            <span>{{$user_this->phone_number}}</span>
                                         </p>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <p>
-                                            <span class="title">کد ملی :</span>
-                                            <span>-</span>
+                                            <span class="title">نقش کاربر :</span>
+                                            <span>@if($user_this->is_operator) {{"فروشنده"}} @elseif ($user_this->is_admin) {{"ادمین"}}
+                                                @else {{"کاربر عادی"}} @endif</span>
                                         </p>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <p>
                                             <span class="title">دریافت خبرنامه :</span>
-                                            <span>بله</span>
+                                            <span>-</span>
                                         </p>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -177,8 +173,8 @@
                             <!-- Modal Core -->
                         </div>
                         @include('layouts.profile-sidebar')
+                    </div>
                 </div>
             </div>
-        </div>
     </main>
 @endsection

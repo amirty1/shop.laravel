@@ -17,7 +17,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title mb-2">لیست ویژگی ها</h4>
+                                <br>
                                 <a href="{{ route('attributes.create') }}" class="btn btn-success">افزودن ویژگی جدید</a>
+                                <br><br>
                                 <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                                     <thead>
                                     <tr>
@@ -33,12 +35,12 @@
                                             <td>{{ $attribute->id }}</td>
                                             <td>{{ $attribute->name }}</td>
                                             <td class="d-flex">
-                                                <form action="{{ route('attributes.destroy',['attributes'=>$attribute->id]) }}" method="POST">
+                                                <form action="{{ route('attributes.destroy',['attribute'=>$attribute->id]) }}" method="POST">
                                                     @CSRF
                                                     @method('delete')
                                                     <button type="submit" onclick="return confirm('آیا از حذف محصول مورد نظر مطمیئن هستید؟')" class="btn btn-danger btn-sm">حذف</button>
                                                 </form>
-                                                <a href="{{ route('attributes.edit',['attributes'=>$attribute->id]) }}" class="btn btn-primary btn-sm">ویرایش</a>
+                                                <a href="{{ route('attributes.edit',['attribute'=>$attribute->id]) }}" class="btn btn-primary btn-sm">ویرایش</a>
                                                 <a href="{{ route('attributes.get.values',['attributes'=>$attribute->id]) }}" class="btn btn-success btn-sm">افزودن مقدار</a>
                                             </td>
                                         </tr>

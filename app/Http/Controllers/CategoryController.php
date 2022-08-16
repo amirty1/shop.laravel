@@ -86,6 +86,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        toast()->success('دسته بندی با موفقیت حذف شد');
+        return back();
     }
 }

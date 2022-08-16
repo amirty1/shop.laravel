@@ -45,6 +45,13 @@ Route::prefix('profile')->group(function (){
 });
 
 
+//Salesmen Panel
+Route::get('/saleman', 'Auth\SalemanController@index')->name('saleman');
+Route::post('/saleman', 'Auth\SalemanController@register');
+// Route::get('/dashboards', 'Admin\HomeController@index')->name('dash');
+
+
+
 //Admin Panel
 Route::prefix('dashboard')->group(function (){
     Route::get('/', 'Admin\HomeController@index')->name('dashboard');
@@ -59,7 +66,7 @@ Route::prefix('dashboard')->group(function (){
     Route::resource('/attributes','Admin\AttributeController');
     Route::get('/attributes/values/{attributes}','Admin\AttributeController@getValues')->name('attributes.get.values');
     Route::post('/attributes/values','Admin\AttributeController@postValues')->name('attributes.post.values');
-    Route::delete('/attributes/values/{attributeValue}','Admin\AttributeController@destroyValues')->name('attributes.delete.values');
+    Route::delete('/attributes/{attributeValue}','Admin\AttributeController@destroyValues')->name('attributes.delete.values');
     Route::get('/attributes/values/edit/{attributeValue}','Admin\AttributeController@editValues')->name('attributes.edit.values');
     Route::patch('/attributes/values/update/{attributeValue}','Admin\AttributeController@updateValues')->name('attributes.update.values');
 
@@ -84,6 +91,7 @@ Route::post('/product/comment','CommentController@sendComment')->name('send.comm
 Route::resource('/cart','CartController');
 Route::get('/product/{id}/purchase','PurchaseController@purchase')->name('payment.product');
 Route::get('/product/{id}/purchase/result','PurchaseController@result')->name('payment.product.result');
+
 Auth::routes(['verify'=>true]);
 
 

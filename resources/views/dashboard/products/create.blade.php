@@ -41,40 +41,40 @@
                                                     <div class="col-sm-12 col-xs-12">
 
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">نام محصول:</label>
+                                                            <label for="exampleInputEmail111">نام محصول</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail111" value="{{ old('title') }}" name="title">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">متن محصول:</label>
+                                                            <label for="exampleInputEmail111">متن محصول</label>
                                                             <textarea type="text" class="form-control" id="exampleInputEmail111"  name="text"></textarea>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">دسته بندی محصول:</label>
+                                                            <label for="exampleInputEmail111">دسته بندی محصول</label>
                                                             <select class="form-control" name="categories[]"  id="categories" multiple>
-{{--                                                                @foreach($categories as $category)--}}
-{{--                                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
-{{--                                                                @endforeach--}}
+                                                               @foreach($categories as $category)
+                                                                   <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                               @endforeach
                                                             </select>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">قیمت محصول:</label>
+                                                            <label for="exampleInputEmail111">قیمت محصول</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail111" value="{{ old('price') }}" name="price">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">موجودی:</label>
+                                                            <label for="exampleInputEmail111">موجودی</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail111" value="{{ old('amount') }}" name="amount">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">متا تایتل:</label>
+                                                            <label for="exampleInputEmail111">متا تایتل</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail111" value="{{ old('metaTitle') }}" name="metaTitle">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">متا دسکریپشن:</label>
+                                                            <label for="exampleInputEmail111">متا دسکریپشن</label>
                                                             <input type="text" class="form-control" id="exampleInputEmail111" value="{{ old('metaDescription') }}" name="metaDescription">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail111">تصویر محصول:</label>
+                                                            <label for="exampleInputEmail111">تصویر محصول</label>
                                                             <input type="file" class="form-control" id="exampleInputEmail111" name="image">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary mr-2">ثبت محصول جدید</button>
@@ -84,17 +84,17 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-{{--                                        @foreach($attributes as $attributes)--}}
-{{--                                            <label for="{{ $attributes->id }}">{{ $attributes->name }}: </label>--}}
-{{--                                            <select class="form-control" name="attributeValues[]" id="{{ $attributes->id }}">--}}
-{{--                                                @foreach($attributeValues as $attributeValue)--}}
-{{--                                                    @if($attributes->id == $attributeValue->attribute_id)--}}
-{{--                                                        <option value="{{ $attributes->id }}-{{ $attributeValue->id }}">{{ $attributeValue->value }}</option>--}}
-{{--                                                    @endif--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                            <br/>--}}
-{{--                                        @endforeach--}}
+                                       @foreach($attributes as $attributes)
+                                           <label for="{{ $attributes->id }}">{{ $attributes->name }}: </label>
+                                           <select class="form-control" name="attributeValues[]" id="{{ $attributes->id }}">
+                                               @foreach($attributeValues as $attributeValue)
+                                                    @if($attributes->id == $attributeValue->attribute_id)
+                                                        <option value="{{ $attributes->id }}-{{ $attributeValue->id }}">{{ $attributeValue->value }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                            <br/>
+                                        @endforeach
                                     </div>
                                 </div>
                             </form>

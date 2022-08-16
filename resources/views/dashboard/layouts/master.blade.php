@@ -14,6 +14,7 @@
         <!-- Page Content -->
         <div class="ecaps-page-content">
             @include('dashboard.layouts.topnav')
+            
             @yield('content')
 
         </div>

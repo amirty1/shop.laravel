@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('can:permissions,user')->only(['index']);
+        $this->middleware('can:comment-store,user')->only(['store', 'edit', 'update' , 'destroy']);
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *

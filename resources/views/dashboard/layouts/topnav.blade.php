@@ -136,11 +136,11 @@
                             </div>
                             <!-- Profile Text -->
                             <div class="profile-text">
-                                <h6>نام کاربر</h6>
+                                <h5 style="color:rgb(250, 248, 248) ;">amir</h5>
                                 <span>توسعه دهنده</span>
                             </div>
                         </div>
-                        <a href="#" class="dropdown-item"><i class="zmdi zmdi-account profile-icon bg-primary" aria-hidden="true"></i> پروفایل من</a>
+                        <a href="{{ route('profile') }}" class="dropdown-item"><i class="zmdi zmdi-account profile-icon bg-primary" aria-hidden="true"></i> پروفایل من</a>
                         <a href="#" class="dropdown-item"><i class="zmdi zmdi-email-open profile-icon bg-success" aria-hidden="true"></i> پیام ها</a>
                         <a href="#" class="dropdown-item"><i class="zmdi zmdi-brightness-7 profile-icon bg-info" aria-hidden="true"></i> تنظیمات حساب</a>
                         <a href="#" class="dropdown-item"><i class="zmdi zmdi-mouse profile-icon bg-danger" aria-hidden="true"></i> وظایف من</a>

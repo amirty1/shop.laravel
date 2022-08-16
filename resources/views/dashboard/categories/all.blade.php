@@ -40,6 +40,7 @@
                                                     <button type="submit" onclick="return confirm('آیا از حذف رکورد مورد نظر مطمیئن هستید؟')" class="btn btn-danger btn-sm">حذف</button>
                                                 </form>
                                             </td>
+                                            
                                         </tr>
                                     @endforeach
                                     </tbody>

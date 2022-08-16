@@ -7,6 +7,7 @@ use App\Models\ActiveCode;
 use App\Models\Basket;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\User;
 use App\Notifications\ActiveCodeNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,8 @@ class ProfileController extends Controller
     }
     public function index()
     {
-        return view('profile.home');
+        $user_this = Auth::user();
+        return view('profile.home' , compact('user_this'));
     }
 
     public function getVerifyPhone(Request $request)

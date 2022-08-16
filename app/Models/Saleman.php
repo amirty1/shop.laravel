@@ -8,24 +8,23 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements mustVerifyEmail
+
+class Saleman extends Authenticatable implements mustVerifyEmail
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+
     protected $fillable = [
         'name',
+        'phone_number',
         'email',
-        'password',
-        'two_factor_type',
-        'phone_number'
+        'code',
+        'birthcode',
+        'market_name'
+
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -37,6 +36,7 @@ class User extends Authenticatable implements mustVerifyEmail
         'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -44,16 +44,33 @@ class User extends Authenticatable implements mustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birth_certi_verified_at',
+        'pic_verify',
     ];
 
-    public function isAdmin()
+
+
+
+    public function products()
     {
-        return $this->is_admin;
+        return $this->belongsToMany(Product::class);
+
+    }
+    public function carts()
+    {
+
+        return $this->belongsToMany(Cart::class);
     }
 
-    public function isOperator()
+    public function orders()
     {
-        return $this->is_operator;
+
+        return $this->belongsToMany(Order::class);
+    }
+
+    public function transactions()
+    {
+        return $this->belongsToMany(Transaction::class);
     }
     public function hasTwoFactorAuthenticatedEnabled()
     {
@@ -76,46 +93,8 @@ class User extends Authenticatable implements mustVerifyEmail
     {
         return $this->belongsToMany(Comment::class);
     }
-
-    public function products()
-    {
-        return $this->belongsToMany(Product::class);
-    }
-
     public function permissions()
     {
         return $this->belongsToMany(Permission::class);
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
-    public function hasPermission($permission)
-    {
-        return $this->permissions->contains('name', $permission->name) || $this->hasRole($permission->roles);
-    }
-
-    public function hasRole($roles)
-    {
-       return !! $roles->intersect($this->roles)->all();
-    }
-
-    public function carts()
-    {
-
-        return $this->belongsToMany(Cart::class);
-    }
-
-    public function orders()
-    {
-
-        return $this->belongsToMany(Order::class);
-    }
-
-    public function transactions()
-    {
-        return $this->belongsToMany(Transaction::class);
     }
 }

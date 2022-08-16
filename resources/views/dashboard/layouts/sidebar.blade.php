@@ -45,21 +45,25 @@
                             </ul>
                         </li>
                     @endcan
-                    @can('orders-all')
+
                         <li class="treeview @php if((request()->is('dashboard/orders'))) { echo 'active';} @endphp">
                             <a href="javascript:void(0)"><i class="zmdi zmdi-account"></i> <span>مدیریت سفارشات</span> <i class="fa fa-angle-left"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="{{ route('orders.index') }}" style="{{ request()->is('dashboard/orders') ? 'color:blue' : '' }}">لیست سفارشات</a></li>
                             </ul>
                         </li>
-                    @endcan
+
                     <li class="treeview @php if((request()->is('dashboard/attributes')) || (request()->is('dashboard/comments/unapproved'))) { echo 'active';} @endphp">
                         <a href="javascript:void(0)"><i class="zmdi zmdi-account"></i> <span>مدیریت ویژگی ها</span> <i class="fa fa-angle-left"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="{{ route('attributes.index') }}" style="{{ request()->is('dashboard/attributes') ? 'color:blue' : '' }}">لیست ویژگی ها</a></li>
-                            <li><a href="{{ route('unapproved.get') }}" style="{{ request()->is('dashboard/comments/unapproved') ? 'color:blue' : '' }}">نظرات تائید نشده</a></li>
+
+                            <li><a href="{{ route('attributes.create') }}" style="{{ request()->is('dashboard/attributes/create') ? 'color:blue' : '' }}">افزودن ویژگی جدید</a></li>
+
                         </ul>
                     </li>
+                    @can('roles','permissions','comment-store')
+
                     <li class="treeview @php if((request()->is('dashboard/permissions')) || (request()->is('dashboard/permissions'))) { echo 'active';} @endphp">
                         <a href="javascript:void(0)"><i class="zmdi zmdi-account"></i> <span>سطوح دسترسی</span> <i class="fa fa-angle-left"></i></a>
                         <ul class="treeview-menu">
@@ -67,6 +71,8 @@
                             <li><a href="{{ route('roles.index') }}" style="{{ request()->is('dashboard/roles') ? 'color:blue' : '' }}">همه نقش ها</a></li>
                         </ul>
                     </li>
+                    @endcan
+
                 </ul>
             </nav>
         </div>

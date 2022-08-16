@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateActiveCodeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
+        Schema::create('active_code', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->boolean('approved')->default(0);
-            $table->text('text');
-            $table->integer('parent_id')->default(0);
-            $table->unsignedBigInteger('commentable_id');
-            $table->string('commentable_type');
 
-            $table->timestamps();
+            $table->integer('code');
+            $table->unique(['user_id','code']);
+
+            $table->timestamp('expired_at');
         });
     }
 
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('active_code');
     }
-};
+}

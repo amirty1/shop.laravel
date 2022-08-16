@@ -46,10 +46,10 @@ class ProductController extends Controller
     {
         $attributeValues = $request->attributeValues;
 //        dd($attributeValues);
-        foreach ($attributeValues as $attributeValue){
-            $attrbuteForProduct =  explode('-',$attributeValue);
-//            $attribute_value[] =
-        }
+//         foreach ($attributeValues as $attributeValue){
+//             $attrbuteForProduct =  explode('-',$attributeValue);
+// //            $attribute_value[] =
+//         }
 //        dd($attrbuteForProduct);
         $request['user_id'] = auth()->user()->id;
 
@@ -61,7 +61,8 @@ class ProductController extends Controller
             'categories' => 'required',
             'user_id' => 'required',
             'metaTitle' => 'nullable',
-            'metaDescription' => 'nullable'
+            'metaDescription' => 'nullable',
+            'image' => 'nullable'
         ]);
 
         //Image
@@ -80,7 +81,7 @@ class ProductController extends Controller
         ]);
 
 
-        $product->attributes()->attach($attrbuteForProduct[0],['value_id' => $attrbuteForProduct[1]]);
+        $product->attributes();
 
         $products = Product::all();
         toast()->success('محصول جدید با موفقیت ایجاد شد');

@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('can:roles,user')->only(['index']);
+        $this->middleware('can:comment-destroy,user')->only(['destroy']);
+        $this->middleware('can:comment-unapproved,user')->only(['unapprovedGet','unapprovedPost']);
+    }
+
+
     /**
      * Display a listing of the resource.
      *

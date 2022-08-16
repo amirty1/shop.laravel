@@ -37,6 +37,9 @@
                     <div class="dropdown">
                         <a class="btn btn-info dropdown-item" style="width: 47%" href="{{ route('login') }}">ورود به سایت</a>
                     </div>
+                    <div class="dropdown">
+                        <a class="btn dropdown-item" style="background-color:rgb(11, 154, 215);" href="{{ route('saleman') }}">فروشنده می شوم</a>
+                    </div>
                 @endif
 
 

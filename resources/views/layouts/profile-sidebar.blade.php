@@ -1,4 +1,4 @@
-<div class="profile-box-username">بهرامی راد</div>
+<div class="profile-box-username">{{$user_this->name}}</div>
 <div class="profile-box-tabs">
     <a href="password-change.html" class="profile-box-tab profile-box-tab-access">
         <i class="now-ui-icons ui-1_lock-circle-open"></i>

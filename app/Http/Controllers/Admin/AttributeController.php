@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use App\Models\AttributeValue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AttributeController extends Controller
 {
@@ -17,7 +18,8 @@ class AttributeController extends Controller
     public function index()
     {
         $attributes = Attribute::all();
-        return view('dashboard.attributes.all',compact('attributes'));
+        $user_this = Auth::user();
+        return view('dashboard.attributes.all',compact('attributes' , 'user_this'));
     }
 
     /**
@@ -27,7 +29,8 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        return view('dashboard.attributes.create');
+        $user_this = Auth::user();
+        return view('dashboard.attributes.create' , compact('user_this'));
     }
 
     /**

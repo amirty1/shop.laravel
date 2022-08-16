@@ -27,7 +27,7 @@ class HomeController extends Controller
         //    $role = Role::create(['name' => 'writer']);
         //    $permission = Permission::create(['name' => 'edit articles']);
 
-//        Auth::user()->assignRole('writer');
+    //    Auth::user()->assignRole('writer');
         $this->seo()
             ->setTitle('فروشگاه شاپ')
             ->setDescription('خرید از یک فروشگاه آنلاین شاپ، محصولات ایرانی و حمایت از کالای ایرانی ...');
